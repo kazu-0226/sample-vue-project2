@@ -1,13 +1,22 @@
 <template>
   <div>
     <LikeHeader></LikeHeader>
-    <LikeNumber></LikeNumber>
+    <h2>{{number}}</h2>
+    <!-- キャメルケース -->
+    <LikeNumber :totalNumber="number"></LikeNumber>
+    <!-- ケバブケース(推奨) -->
+    <LikeNumber :total-number="number"></LikeNumber>
   </div>
 </template>
 
 <script>
 import LikeHeader from "./components/LikeHeader.vue"
 export default {
+  data(){
+    return{
+      number: 10
+    }
+  },
   components: {
     LikeHeader
   }
