@@ -1,5 +1,5 @@
 <template>
-    <h1>トータルのいいね！数</h1>
+    <h1>トータルのいいね数</h1>
 </template>
 
 <style  scoped>
