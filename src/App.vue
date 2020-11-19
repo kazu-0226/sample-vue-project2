@@ -1,6 +1,10 @@
 <template>
   <div>
-    <LikeHeader></LikeHeader>
+    <LikeHeader>
+      <!-- slotに送る -->
+      <h1>トータルのいいね数</h1>
+      <h2>{{ number }}</h2>
+    </LikeHeader>
     <h2>{{number}}</h2>
     <!-- キャメルケース -->
     <LikeNumber :totalNumber="number"></LikeNumber>

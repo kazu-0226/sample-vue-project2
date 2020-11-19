@@ -1,6 +1,16 @@
 <template>
-    <h1>トータルのいいね数</h1>
+    <div>
+        <!-- slotはHTMLのtemplateを送る -->
+        <slot></slot>
+    </div>
 </template>
+
+<script>
+export default {
+// propsはデータやstring
+  props: ["headerText"]
+}
+</script>
 
 <style  scoped>
 h1 {
