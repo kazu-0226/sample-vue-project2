@@ -2,8 +2,13 @@
   <div>
     <LikeHeader>
       <!-- slotに送る -->
-      <h1>トータルのいいね数</h1>
-      <h2>{{ number }}</h2>
+      <!-- slotが複数ある場合は template v-slot:引数 -->
+      <template v-slot:title>
+        <h1>トータルのいいね！数</h1>
+      </template>
+      <template v-slot:number>
+        <h2>{{ number }}</h2>
+      </template>
     </LikeHeader>
     <h2>{{number}}</h2>
     <!-- キャメルケース -->
@@ -31,5 +36,6 @@ export default {
  div {
    border: 3px solid blue;
  }
+
 </style>
 

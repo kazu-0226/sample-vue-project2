@@ -1,7 +1,15 @@
 <template>
     <div>
-        <!-- slotはHTMLのtemplateを送る -->
-        <slot></slot>
+        <!-- slotはHTMLのtemplateを受け取ることができる -->
+        <!-- name属性を追加して受け取る箇所を指定 -->
+        <slot name="title">
+            <!-- slotに渡されるテンプレートが定義されていない場合は、表示されるオールバックコンテンツ -->
+            <h2>デフォルトのタイトル</h2>
+        </slot>
+        <hr>
+        <p>いいねの数</p>
+        <slot name="number"></slot>
+        
     </div>
 </template>
 
