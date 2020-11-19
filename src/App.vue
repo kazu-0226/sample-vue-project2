@@ -15,6 +15,7 @@
       </template>
       <!-- 名前付きtemplate意外に記載するとデフォルトとなる -->
       <h3>デフォルトslot</h3>
+      <!-- 名前付きslot（v-slot:number）の場合は必ずtemplateを利用する -->
       <template v-slot:number>
         <h2>{{ number }}</h2>
       </template>
