@@ -6,10 +6,16 @@
             <!-- slotに渡されるテンプレートが定義されていない場合は、表示されるオールバックコンテンツ -->
             <h2>デフォルトのタイトル</h2>
         </slot>
+        <!-- デフォルトスロット -->
+        <!-- v-slotで定義されていない物は、新しいテンプレート（name:"defualt"）で渡される -->
+        <!-- 
+          <slot name="defualt"></slot>
+         -->
+        <slot></slot>
         <hr>
         <p>いいねの数</p>
-        <slot name="number"></slot>
-        
+        <slot name="number">
+        </slot>
     </div>
 </template>
 
