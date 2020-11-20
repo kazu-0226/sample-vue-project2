@@ -10,8 +10,11 @@
         </template>
        -->
       <p>これもデフォルトslot</p>
-      <template v-slot:title>
+      <!-- 子コンポーネントのデータをv-slotディレクティブで受取、利用できる -->
+      <template v-slot:title="slotProps">
         <h1>トータルのいいね！数</h1>
+        <h2>{{ slotProps }}</h2>
+        <h2>{{ slotProps.user.lastName}}</h2>
       </template>
       <!-- 名前付きtemplate意外に記載するとデフォルトとなる -->
       <h3>デフォルトslot</h3>

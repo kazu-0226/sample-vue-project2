@@ -2,7 +2,8 @@
     <div>
         <!-- slotはHTMLのtemplateを受け取ることができる -->
         <!-- name属性を追加して受け取る箇所を指定 -->
-        <slot name="title">
+        <!-- 子コンポーネントのslotにv-bindでデータを指定 -->
+        <slot name="title" v-bind:user="user" text="text">
             <!-- slotに渡されるテンプレートが定義されていない場合は、表示されるオールバックコンテンツ -->
             <h2>デフォルトのタイトル</h2>
         </slot>
@@ -22,7 +23,15 @@
 <script>
 export default {
 // propsはデータやstring
-  props: ["headerText"]
+// props: ["headerText"]
+data(){
+    return{
+        user: {
+            firstName: 'Jack',
+            lastName: 'John'
+        }
+    }
+}
 }
 </script>
 
