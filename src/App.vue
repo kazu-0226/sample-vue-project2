@@ -1,11 +1,15 @@
 <template>
   <div>
+    <!-- 
+      デフォルトのみの場合はコンポーネントにv-slotを記載できる
+    <LikeHeader v-slot:defualt="slotPlops">  
+    -->
     <LikeHeader>
       <!-- slotに送る -->
       <!-- slotが複数ある場合は template v-slot:引数 -->
       <!-- v-slotで定義されていない物は、全てまとめてテンプレート（name:"defualt"）で渡される -->
       <!-- 
-        <template v-slot:defualt >
+        <template v-slot:defualt="slotPlops" >
           <h2>{{ number }}</h2>
         </template>
        -->
