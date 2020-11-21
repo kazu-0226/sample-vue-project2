@@ -37,20 +37,35 @@
     <LikeNumber :totalNumber="number"></LikeNumber>
     <!-- ケバブケース(推奨) -->
     <LikeNumber :total-number="number"></LikeNumber>
+    
+    <button @click="currentComponent = 'Home'">Home</button>
+    <button @click="currentComponent = 'About'">About</button>
+    <p>動的にコンポーネントを切り替える</p>
+    <!-- <component>にv-bind:is＝""-->
+    <component v-bind:is="currentComponent"></component>
+    <p>ifの場合</p>
+    <About v-if="currentComponent === 'About'"></About>
+    <Home v-if="currentComponent === 'Home'"></Home>
   </div>
 </template>
 
 <script>
 import LikeHeader from "./components/LikeHeader.vue"
+import About from "./components/About.vue"
+import Home from "./components/Home.vue"
+
 export default {
   data(){
     return{
       number: 10,
-      message: "こんにちは"
+      message: "こんにちは",
+      currentComponent: "Home"
     }
   },
   components: {
-    LikeHeader
+    LikeHeader,
+    About,
+    Home
   }
 };
 </script>
