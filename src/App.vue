@@ -42,7 +42,13 @@
     <button @click="currentComponent = 'About'">About</button>
     <p>動的にコンポーネントを切り替える</p>
     <!-- <component>にv-bind:is＝""-->
-    <component v-bind:is="currentComponent"></component>
+    <!-- 動的コンポーネントはコンポーネントを切り替えるとdestroyされ新しいインスタンスとなる
+         keep-alliveタグで保持できる
+     -->
+    <keep-alive>
+      <component v-bind:is="currentComponent"></component>
+    </keep-alive>
+    
     <p>ifの場合</p>
     <About v-if="currentComponent === 'About'"></About>
     <Home v-if="currentComponent === 'Home'"></Home>
