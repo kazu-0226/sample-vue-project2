@@ -12,6 +12,8 @@
         <!-- 
           <slot name="defualt"></slot>
          -->
+         <hr>
+        <slot name="message"></slot>
         <slot></slot>
         <hr>
         <p>いいねの数</p>

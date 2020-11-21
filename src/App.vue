@@ -1,8 +1,9 @@
 <template>
   <div>
     <!-- 
-      デフォルトのみの場合はコンポーネントにv-slotを記載できる
-    <LikeHeader v-slot:defualt="slotPlops">  
+      デフォルトスロットのみの場合はコンポーネントにv-slotを記載できる
+      <LikeHeader v-slot:defualt="slotPlops">  
+      <LikeHeader #defualt="slotPlops">  
     -->
     <LikeHeader>
       <!-- slotに送る -->
@@ -26,6 +27,10 @@
       <template v-slot:number>
         <h2>{{ number }}</h2>
       </template>
+      <!-- 名前付きスロットの省略記法 -->
+      <template #message>
+        <h2>{{ message }}</h2>
+      </template>
     </LikeHeader>
     <h2>{{number}}</h2>
     <!-- キャメルケース -->
@@ -40,7 +45,8 @@ import LikeHeader from "./components/LikeHeader.vue"
 export default {
   data(){
     return{
-      number: 10
+      number: 10,
+      message: "こんにちは"
     }
   },
   components: {
