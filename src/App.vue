@@ -52,6 +52,16 @@
     <p>ifの場合</p>
     <About v-if="currentComponent === 'About'"></About>
     <Home v-if="currentComponent === 'Home'"></Home>
+
+    <div>
+      <h2>イベントフォーム</h2>
+      <label for="title">タイトル</label>
+      <input 
+        id="title"
+        type="text"
+        v-model="eventData.title">
+        <p>{{eventData.title}}</p>
+    </div>
   </div>
 </template>
 
@@ -65,7 +75,10 @@ export default {
     return{
       number: 10,
       message: "こんにちは",
-      currentComponent: "Home"
+      currentComponent: "Home",
+      eventData:{
+        title: ""
+      }
     }
   },
   components: {
@@ -77,9 +90,9 @@ export default {
 </script>
 
 <style  scoped>
- div {
+ /* div {
    border: 3px solid blue;
- }
+ } */
 
 </style>
 

@@ -38,7 +38,7 @@ data(){
 </script>
 
 <style  scoped>
-h1 {
+/* h1 {
     color:blueviolet;
-}
+} */
 </style>
