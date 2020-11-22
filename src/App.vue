@@ -56,10 +56,11 @@
     <div>
       <h2>イベントフォーム</h2>
       <label for="title">タイトル</label>
+      <!-- v-model.lazy修飾子は入力してフォーカスを外した時（changeのdomイベントで発火する -->
       <input 
         id="title"
         type="text"
-        v-model="eventData.title">
+        v-model.lazy="eventData.title">
         <p>{{eventData.title}}</p>
     </div>
   </div>
