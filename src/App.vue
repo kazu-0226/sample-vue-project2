@@ -62,6 +62,24 @@
         type="text"
         v-model.lazy="eventData.title">
         <p>{{eventData.title}}</p>
+
+      <label for="maxNumber">最大人数</label>
+      <!-- typeがnumberであっても、プルダウンで初期値を変更するとstringになるが
+           v-model.number修飾子でnumberに固定される -->
+      <input 
+        id="maxNumber"
+        type="number"
+        v-model.number="eventData.maxNumber">
+        <!-- typeofで値の型がわかる -->
+        <p>{{ eventData.maxNumber}}</p>
+
+      <label for="host">主催者</label>
+      <!-- v-model.trim修飾子で入力した値の最初と最後にスペースがあった場合はカットされる -->
+      <input 
+        id="host"
+        type="text"
+        v-model.trim="eventData.host">
+        <p>{{  eventData.host  }}</p>
     </div>
   </div>
 </template>
@@ -78,7 +96,9 @@ export default {
       message: "こんにちは",
       currentComponent: "Home",
       eventData:{
-        title: ""
+        title: "タイトル",
+        maxNumber: 0 ,
+        host: "主催者"
       }
     }
   },
