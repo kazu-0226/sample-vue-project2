@@ -55,13 +55,13 @@
 
     <div style="padding: 10rem">
       <h2>イベントフォーム</h2>
-      <label for="title">タイトル</label>
-      <!-- v-model.lazy修飾子は入力してフォーカスを外した時（changeのdomイベントで発火する -->
-      <input 
-        id="title"
-        type="text"
-        v-model.lazy="eventData.title">
-        <p>{{eventData.title}}</p>
+      <EventTitle v-model="eventData.title"></EventTitle>
+      <!-- コンポーネントにv-modelを追加した場合 -->
+      <!-- <EventTitle
+        :value="eventData.title"
+        @input="eventData.title = $event"
+      >
+      </EventTitle> -->
 
       <label for="maxNumber">最大人数</label>
       <!-- typeがnumberであっても、プルダウンで初期値を変更するとstringになるが
@@ -154,6 +154,7 @@
 import LikeHeader from "./components/LikeHeader.vue"
 import About from "./components/About.vue"
 import Home from "./components/Home.vue"
+import EventTitle from "./components/EventTitle.vue"
 
 export default {
   data(){
@@ -177,7 +178,8 @@ export default {
   components: {
     LikeHeader,
     About,
-    Home
+    Home,
+    EventTitle
   }
 };
 </script>
