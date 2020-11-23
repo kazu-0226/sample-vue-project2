@@ -53,7 +53,7 @@
     <About v-if="currentComponent === 'About'"></About>
     <Home v-if="currentComponent === 'Home'"></Home>
 
-    <div>
+    <div style="padding: 10rem">
       <h2>イベントフォーム</h2>
       <label for="title">タイトル</label>
       <!-- v-model.lazy修飾子は入力してフォーカスを外した時（changeのdomイベントで発火する -->
@@ -79,7 +79,73 @@
         id="host"
         type="text"
         v-model.trim="eventData.host">
-        <p>{{  eventData.host  }}</p>
+        <pre>{{  eventData.host  }}</pre>
+
+        <label for="datail">イベントの内容</label>
+        <textarea name="" id="detail" cols="30" rows="10" v-model="eventData.datail"></textarea>
+        <p style="white-space: pre">{{ eventData.datail }}</p>
+
+        <input 
+        type="checkbox" 
+        id="isPrivate"
+        v-model="eventData.isPrivate">
+        <label for="isPrivate">非公開</label>
+        <p>{{ eventData.isPrivate }}</p>
+
+        <!-- 複数のcheckboxのように回答を選択できる場合はdataを配列にする -->
+        <p>参加条件</p>
+        <input 
+          type="checkbox" 
+          name="" 
+          id="10"
+          value="10代"
+          v-model="eventData.target"
+        >
+        <label for="10">10代</label>
+
+        <input 
+          type="checkbox" 
+          name="" 
+          id="20"
+          value="20代"
+          v-model="eventData.target"
+        >
+        <label for="20">20代</label>
+
+        <input 
+          type="checkbox" 
+          name="" 
+          id="30"
+          value="30代"
+          v-model="eventData.target"
+        >
+        <label for="30">30代</label>
+        <p>{{eventData.target}}</p>
+
+        <p>参加費</p>
+        <input 
+        type="radio" 
+        id="free"
+        value="無料"
+        v-model="eventData.price">
+        <label for="free">無料</label>
+
+        <input 
+        type="radio" 
+        id="paid"
+        value="有料"
+        v-model="eventData.price">
+        <label for="paid">有料</label>
+        <p>{{eventData.price}}</p>
+
+        <!-- selectで複数の選択肢を作成する場合、v-for="一つずつ取り出す引数 in 選択肢の集合"でそれぞれの選択肢を作成。
+             :keyで必ずインデックスを取得する
+         -->
+        <p>開催地</p>
+        <select v-model="eventData.location" multiple>
+          <option v-for="location in locations" :key="location">{{location}}</option>
+        </select>
+        <p>{{eventData.location}}</p>
     </div>
   </div>
 </template>
@@ -95,10 +161,16 @@ export default {
       number: 10,
       message: "こんにちは",
       currentComponent: "Home",
+      locations: ["東京", "大阪", "名古屋"],
       eventData:{
-        title: "タイトル",
+        title: "",
         maxNumber: 0 ,
-        host: "主催者"
+        host: "",
+        detail: "",
+        isPrivate: false,
+        target:[],
+        price: "無料",
+        location: []
       }
     }
   },
