@@ -1,5 +1,5 @@
 <template>
     <!-- カスタムディレクティブ  -->
-    <p v-boder>Home</p>
+    <p v-border>Home</p>
 </template>
 

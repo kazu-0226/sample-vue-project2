@@ -7,7 +7,9 @@ Vue.component('LikeNumber', LikeNumber);
 
 // , function(el, binding)で省略記法
 Vue.directive("border", function(el, binding){
-
+  // カスタムディレクティブが紐づくHTML要素(el = p)
+  el.style.border = "solid black 1px";
+});
 
   // // フック関数
   // // 多く利用されるのがbindとupdate
@@ -30,9 +32,6 @@ Vue.directive("border", function(el, binding){
   // },
   // unbind(el, binding, vnode) {
   //   // ディレクティブが紐づいている要素から取り除かれた時
-  //   // 
-  // }
-});
 
 new Vue({
   render: h => h(App),
