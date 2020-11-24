@@ -6,9 +6,15 @@ Vue.config.productionTip = false
 Vue.component('LikeNumber', LikeNumber);
 
 // , function(el, binding)で省略記法
+// ディレクティブフック引数(el, binding, vnode, oldVnode)
 Vue.directive("border", function(el, binding){
   // カスタムディレクティブが紐づくHTML要素(el = p)
   el.style.border = "solid black 1px";
+  // bindingはvalueやnameなどプロパティを含んでいるオブジェクト
+  //  el.style.borderWidthに value: ディレクティブに渡される5pxを導入
+  el.style.borderWidth = binding.value.width;
+  el.style.borderColor = binding.value.color;
+
 });
 
   // // フック関数
