@@ -14,9 +14,16 @@ Vue.directive("border", function(el, binding){
   //  el.style.borderWidthに value: ディレクティブに渡される5pxを導入
   el.style.borderWidth = binding.value.width;
   el.style.borderColor = binding.value.color;
-  // もしあれば、ディレクティブに渡される引数。arg = dotted
+  // ディレクティブに渡される引数。arg = dotted
   el.style.borderStyle = binding.arg;
-
+  // 修飾子 (modifier) を含んでいるオブジェクト。
+  // v-border:solid.roundの場合は{round: true, shadow: true}
+  if (binding.modifiers.round){
+    el.style.borderRadius = "0.5rem";
+  }
+  if (binding.modifiers.shadow){
+    el.style.boxShadow = "0 10px 15px rgba(0, 0, 0, 0.26)";
+  }
 });
 
   // // フック関数
