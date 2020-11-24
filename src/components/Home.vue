@@ -1,3 +1,5 @@
 <template>
-    <p>Home</p>
+    <!-- カスタムディレクティブ  -->
+    <p v-boder>Home</p>
 </template>
+
