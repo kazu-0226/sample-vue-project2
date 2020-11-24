@@ -9,11 +9,13 @@ Vue.component('LikeNumber', LikeNumber);
 // ディレクティブフック引数(el, binding, vnode, oldVnode)
 Vue.directive("border", function(el, binding){
   // カスタムディレクティブが紐づくHTML要素(el = p)
-  el.style.border = "solid black 1px";
+  // el.style.border = "solid black 1px";
   // bindingはvalueやnameなどプロパティを含んでいるオブジェクト
   //  el.style.borderWidthに value: ディレクティブに渡される5pxを導入
   el.style.borderWidth = binding.value.width;
   el.style.borderColor = binding.value.color;
+  // もしあれば、ディレクティブに渡される引数。arg = dotted
+  el.style.borderStyle = binding.arg;
 
 });
 
