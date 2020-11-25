@@ -1,10 +1,25 @@
 <template>
+  <div>
     <!-- カスタムディレクティブ  -->
-<p v-border:solid.round.shadow="{width: '5px', color: 'red'}">Home</p>
+    <p v-border:solid.round.shadow="{width: '5px', color: 'red'}">Home</p>
+    <h2>{{ title | upperCase}}</h2>
+    <p>{{ subTitle | upperCase }}</p>
+  </div>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            title: "Welcome to Tokyo",
+            subTitle: "Tokyo is a great city"
+        };
+    },
+    // computed: {
+    //     upperCasetitle(){
+    //         return this.title.toUpperCase();
+    //     }
+    // },
     // ローカルに登録する場合（this)は使えない
     directives: {
         border(el, binding) {
