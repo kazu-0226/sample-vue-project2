@@ -3,7 +3,8 @@
     <!-- カスタムディレクティブ  -->
     <p v-border:solid.round.shadow="{width: '5px', color: 'red'}">Home</p>
     <h2>{{ title | upperCase}}</h2>
-    <p>{{ subTitle | upperCase }}</p>
+    <!-- フィルタを連結する場合は、記述順に処理される -->
+    <p>{{ subTitle | upperCase  | lowerCase }}</p>
     <p>{{title | lowerCase}}</p>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
     },
     filters: {
         lowerCase(value){
+            // thisは利用できない
             return value.toLowerCase();
         }
     },
