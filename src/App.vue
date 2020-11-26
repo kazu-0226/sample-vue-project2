@@ -49,9 +49,9 @@
       <component v-bind:is="currentComponent"></component>
     </keep-alive>
     
-    <p>ifの場合</p>
+    <!-- <p>ifの場合</p>
     <About v-if="currentComponent === 'About'"></About>
-    <Home v-if="currentComponent === 'Home'"></Home>
+    <Home v-if="currentComponent === 'Home'"></Home> -->
 
     <div style="padding: 10rem">
       <h2>イベントフォーム</h2>

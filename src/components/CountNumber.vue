@@ -13,6 +13,15 @@
 import { tokyoNumber } from "@/tokyoNumber";
 
 export default {
-    mixins: [tokyoNumber]
+    mixins: [tokyoNumber],
+    // mixinとオプションが重複する場合はコンポーネント優先
+    data(){
+        return{
+            title: "welcom to USA"
+        };
+    },
+    created(){
+        console.log("created in component")
+    }
 };
 </script>

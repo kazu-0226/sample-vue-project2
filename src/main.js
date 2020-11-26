@@ -7,6 +7,13 @@ Vue.component('LikeNumber', LikeNumber);
 Vue.filter("upperCase", function(value){
   return value.toUpperCase();
 });
+// 基本的にはグローバルミックスインは使わない
+Vue.mixin({
+  // 全てのvueインスタンスにmixinで定義したオプションが反映される
+  created(){
+    console.log("global mixin")
+  }
+})
 
 // , function(el, binding)で省略記法
 // ディレクティブフック引数(el, binding, vnode, oldVnode)
