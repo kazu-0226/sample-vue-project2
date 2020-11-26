@@ -6,23 +6,36 @@
     <!-- フィルタを連結する場合は、記述順に処理される -->
     <p>{{ subTitle | upperCase  | lowerCase }}</p>
     <p>{{title | lowerCase}}</p>
+    <p>{{ number }}</p>
+    <button @click="increment">+1</button>
+    <hr>
+    <CountNumber></CountNumber>
   </div>
 </template>
 
 <script>
+import CountNumber from "./CountNumber.vue"
+import { tokyoNumber } from "@/tokyoNumber";
+
 export default {
-    data(){
-        return{
-            title: "Welcome to Tokyo",
-            subTitle: "Tokyo is a great city"
-        };
+    mixins: [tokyoNumber],
+    // mixinで重複
+    // data(){
+    //     return{
+    //         title: "Welcome to Tokyo",
+    //         subTitle: "Tokyo is a great city"
+    //     };
+    // },
+    components :{
+        CountNumber
     },
-    filters: {
-        lowerCase(value){
-            // thisは利用できない
-            return value.toLowerCase();
-        }
-    },
+    // mixinで重複
+    // filters: {
+    //     lowerCase(value){
+    //         // thisは利用できない
+    //         return value.toLowerCase();
+    //     }
+    // },
     // computed: {
     //     upperCasetitle(){
     //         return this.title.toUpperCase();
